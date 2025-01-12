@@ -7,11 +7,31 @@ class XSSRule(BaseRule):
         self.severity = "ALTA"
         self.description = "A7:2017 - Cross-Site Scripting (XSS)"
         self.patterns = [
-            r"render_template_string\s*\(\s*.*\+",
-            r"\.html\s*\(\s*.*\+",
+            # Patrones básicos de XSS
             r"innerHTML\s*=",
+            r"outerHTML\s*=",
             r"document\.write\s*\(",
             r"\.html\s*\(",
+            # Frameworks específicos
+            r"dangerouslySetInnerHTML",
+            r"v-html=",
+            r"\[innerHTML\]",
+            # Template engines
+            r"render_template_string",
+            r"mark_safe",
+            r"safe\s*\|",
+            r"\|\s*safe",
+            # Sanitización insegura
+            r"sanitize_html",
+            r"bypass_sanitize",
+            # DOM manipulation
+            r"\.insertAdjacentHTML",
+            r"\.createHTML",
+            r"\.parseHTML",
+            # Eventos peligrosos
+            r"eval\s*\(",
+            r"setTimeout\s*\(\s*['\"]",
+            r"setInterval\s*\(\s*['\"]",
         ]
 
     def analyze(self, line: str, file_path: str, line_number: int) -> dict:

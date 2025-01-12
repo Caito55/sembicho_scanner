@@ -1,1 +1,27 @@
-No se encontraron vulnerabilidades.
+=== Reporte de Vulnerabilidades ===
+
+Archivo: C:\Users\TGT\Desktop\PLN.POM.Jobs\test_vulnerabilities.py
+Línea: 2
+Regla: A7:2017 - Cross-Site Scripting (XSS)
+Descripción: Posible vulnerabilidad XSS detectada
+--------------------------------------------------
+Archivo: C:\Users\TGT\Desktop\PLN.POM.Jobs\test_vulnerabilities.py
+Línea: 9
+Regla: A1:2017 - Inyección SQL
+Descripción: Posible inyección SQL detectada
+--------------------------------------------------
+Archivo: C:\Users\TGT\Desktop\PLN.POM.Jobs\test_vulnerabilities.py
+Línea: 9
+Regla: A2:2017 - Broken Authentication
+Descripción: Posible problema de autenticación detectado
+--------------------------------------------------
+Archivo: C:\Users\TGT\Desktop\PLN.POM.Jobs\test_vulnerabilities.py
+Línea: 10
+Regla: A1:2017 - Inyección SQL
+Descripción: Posible inyección SQL detectada
+--------------------------------------------------
+Archivo: C:\Users\TGT\Desktop\PLN.POM.Jobs\test_vulnerabilities.py
+Línea: 20
+Regla: A7:2017 - Cross-Site Scripting (XSS)
+Descripción: Posible vulnerabilidad XSS detectada
+--------------------------------------------------

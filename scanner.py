@@ -1,6 +1,8 @@
 import os
 from rules.injection_rule import SQLInjectionRule, CommandInjectionRule
 from rules.xss_rule import XSSRule
+from rules.authentication_rule import BrokenAuthenticationRule
+from rules.sensitive_data_rule import SensitiveDataRule
 
 class SecurityScanner:
     def __init__(self):
@@ -9,6 +11,8 @@ class SecurityScanner:
             SQLInjectionRule(),
             CommandInjectionRule(),
             XSSRule(),
+            BrokenAuthenticationRule(),
+            SensitiveDataRule(),
             # Aquí irían más reglas...
         ]
 

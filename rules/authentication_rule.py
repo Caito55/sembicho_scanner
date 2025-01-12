@@ -7,10 +7,31 @@ class BrokenAuthenticationRule(BaseRule):
         self.severity = "ALTA"
         self.description = "A2:2017 - Broken Authentication"
         self.patterns = [
-            r"password\s*=\s*['\"][^'\"]+['\"]",  # Contraseñas hardcodeadas
-            r"md5\s*\(",  # Uso de MD5 (hash débil)
-            r"sha1\s*\(",  # Uso de SHA1 (hash débil)
-            r"SECRET_KEY\s*=\s*['\"][^'\"]+['\"]",  # Claves secretas hardcodeadas
+            # Credenciales hardcodeadas
+            r"password\s*=\s*['\"][^'\"]+['\"]",
+            r"passwd\s*=\s*['\"][^'\"]+['\"]",
+            r"pwd\s*=\s*['\"][^'\"]+['\"]",
+            r"secret\s*=\s*['\"][^'\"]+['\"]",
+            r"api_key\s*=\s*['\"][^'\"]+['\"]",
+            # Hashes débiles
+            r"md5\s*\(",
+            r"sha1\s*\(",
+            r"base64\.encode",
+            # Configuraciones inseguras
+            r"SECRET_KEY\s*=\s*['\"][^'\"]+['\"]",
+            r"SECURITY_KEY\s*=\s*['\"][^'\"]+['\"]",
+            r"AUTH_KEY\s*=\s*['\"][^'\"]+['\"]",
+            # Tokens y sesiones
+            r"session\.sign\s*=\s*False",
+            r"verify\s*=\s*False",
+            r"check_hostname\s*=\s*False",
+            # Configuraciones de cookies
+            r"secure\s*=\s*False",
+            r"httponly\s*=\s*False",
+            r"samesite\s*=\s*None",
+            # Debugging
+            r"DEBUG\s*=\s*True",
+            r"DEVELOPMENT_MODE\s*=\s*True",
         ]
 
     def analyze(self, line: str, file_path: str, line_number: int) -> dict:
