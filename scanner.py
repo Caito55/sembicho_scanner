@@ -3,17 +3,35 @@ from rules.injection_rule import SQLInjectionRule, CommandInjectionRule
 from rules.xss_rule import XSSRule
 from rules.authentication_rule import BrokenAuthenticationRule
 from rules.sensitive_data_rule import SensitiveDataRule
+from rules.xxe_rule import XXERule
+from rules.broken_access_control import BrokenAccessControlRule
+from rules.security_misconfiguration import SecurityMisconfigurationRule
+from rules.insecure_deserialization import InsecureDeserializationRule
+from rules.vulnerable_components import VulnerableComponentsRule
+from rules.insufficient_logging import InsufficientLoggingRule
+from rules.crypto_rule import CryptographicFailuresRule
+from rules.server_side_request_forgery import SSRFRule
+from rules.api_security_rule import APISecurityRule
+from rules.business_logic_rule import BusinessLogicRule
 
 class SecurityScanner:
     def __init__(self):
-        # Inicializar todas las reglas OWASP Top 10
         self.rules = [
             SQLInjectionRule(),
             CommandInjectionRule(),
             XSSRule(),
             BrokenAuthenticationRule(),
             SensitiveDataRule(),
-            # Aquí irían más reglas...
+            XXERule(),
+            BrokenAccessControlRule(),
+            SecurityMisconfigurationRule(),
+            InsecureDeserializationRule(),
+            VulnerableComponentsRule(),
+            InsufficientLoggingRule(),
+            CryptographicFailuresRule(),
+            SSRFRule(),
+            APISecurityRule(),
+            BusinessLogicRule(),
         ]
 
     def scan(self, path):
